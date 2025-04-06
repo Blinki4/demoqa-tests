@@ -25,4 +25,18 @@ public class SelectMenuTests {
         $(byText("Select Title")).click();
         $(byText("Mr.")).click();
     }
+
+    @Test
+    void oldStyleSelectTest() {
+        open("/select-menu");
+        $("#oldSelectMenu").selectOptionByValue("red");
+    }
+
+    @Test
+    void multiselectDropdownTest() {
+        open("/select-menu");
+        $(byText("Select...")).click();
+        $("#react-select-4-option-2").click();
+        $("#react-select-4-option-3").click();
+    }
 }
