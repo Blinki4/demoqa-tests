@@ -5,8 +5,7 @@ import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class TextBoxTests {
@@ -18,9 +17,18 @@ public class TextBoxTests {
         Configuration.pageLoadStrategy = "eager";
     }
 
+    @BeforeEach
+    void openTextBoxPage() {
+        open("/text-box");
+    }
+
+    @AfterEach
+    void closeBrowser () {
+        closeWindow();
+    }
+
     @Test
     void successfulFormSubmitTest () {
-        open("/text-box");
         $("#userName").setValue("Peter Parker");
         $("#userEmail").setValue("FriendlyNeighbour@web.com");
         $("#currentAddress").setValue("New-York. Manhattan. Spider-Island.");
@@ -36,7 +44,6 @@ public class TextBoxTests {
 
     @Test
     void invalidEmail () {
-        open("/text-box");
         $("#userEmail").setValue("FriendlyNeighbour");
         $("#submit").click();
         $("#userEmail").shouldHave(cssClass("field-error"));
