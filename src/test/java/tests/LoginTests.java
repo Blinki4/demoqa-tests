@@ -13,7 +13,7 @@ import static com.codeborne.selenide.WebDriverConditions.url;
 
 public class LoginTests {
     @BeforeAll
-    static void beforeAll() {
+    static void configureBrowser() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";

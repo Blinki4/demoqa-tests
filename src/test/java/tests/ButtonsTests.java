@@ -6,10 +6,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SelectMenuTests {
+public class ButtonsTests {
     @BeforeAll
     static void configureBrowser() {
         Configuration.browserSize = "1920x1080";
@@ -18,8 +19,8 @@ public class SelectMenuTests {
     }
 
     @BeforeEach
-    void openSelectMenuPage() {
-        open("/select-menu");
+    void openButtonsMenuPage() {
+        open("/buttons");
     }
 
     @AfterEach
@@ -28,23 +29,23 @@ public class SelectMenuTests {
     }
 
     @Test
-    void selectMenuTest () {
-        $("#withOptGroup").click();
-        $(byText("A root option")).click();
-        $(byText("Select Title")).click();
-        $(byText("Mr.")).click();
+    void doubleClickButtonTest() {
+        $("#doubleClickBtn").doubleClick();
+
+        $("#doubleClickMessage").shouldHave(text("You have done a double click"));
     }
 
     @Test
-    void oldStyleSelectTest() {
-        $("#oldSelectMenu").selectOptionByValue("red");
+    void rightClickButtonTest() {
+        $("#rightClickBtn").contextClick();
+
+        $("#rightClickMessage").shouldHave(text("You have done a right click"));
     }
 
     @Test
-    void multiselectDropdownTest() {
-        open("/select-menu");
-        $(byText("Select...")).click();
-        $("#react-select-4-option-2").click();
-        $("#react-select-4-option-3").click();
+    void dynamicClickButtonTest() {
+        $(byText("Click Me")).click();
+
+        $("#dynamicClickMessage").shouldHave(text("You have done a dynamic click"));
     }
 }
