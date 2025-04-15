@@ -1,4 +1,4 @@
-package tests;
+package demoqa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
@@ -24,7 +24,7 @@ public class ButtonsTests {
     }
 
     @AfterEach
-    void closeBrowser () {
+    void closeBrowser() {
         closeWindow();
     }
 

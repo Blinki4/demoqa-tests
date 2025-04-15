@@ -1,4 +1,4 @@
-package tests;
+package demoqa;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
@@ -23,12 +23,12 @@ public class SelectMenuTests {
     }
 
     @AfterEach
-    void closeBrowser () {
+    void closeBrowser() {
         closeWindow();
     }
 
     @Test
-    void selectMenuTest () {
+    void selectMenuTest() {
         $("#withOptGroup").click();
         $(byText("A root option")).click();
         $(byText("Select Title")).click();
