@@ -61,8 +61,8 @@ public class Snippets {
         $(withTagAndText("div", "ull text"));
 
         $("").parent();
-        $("").sibling(1);
-        $("").preceding(1);
+        $("").sibling(1); // вниз по DOM
+        $("").preceding(1); // вверх по DOM
         $("").closest("div");
         $("").ancestor("div"); // the same as closest
         $("div:last-child");
