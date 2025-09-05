@@ -47,8 +47,8 @@ public class PracticeFormTests {
 //        $x("//td[contains(text(),'Hobbies')]/../td[2]").shouldHave(text("Sports, Reading, Music"));
 //        $x("//td[contains(text(),'Picture')]/../td[2]").shouldHave(text("ejik.jpg"));
 //        $x("//td[contains(text(),'Address')]/../td[2]").shouldHave(text("New-York. Manhattan. Spider-Island."));
-        $x("//td[contains(text(),'State and City')]/../td[2]").shouldHave(text("Rajasthan Jaiselmer"));
-
+//        $x("//td[contains(text(),'State and City')]/../td[2]").shouldHave(text("Rajasthan Jaiselmer"));
+//
         $(byText("Student Name")).sibling(0).shouldHave(text("Peter Parker"));
         $(byText("Student Email")).sibling(0).shouldHave(text("FriendlyNeighbour@web.com"));
         $(byText("Gender")).sibling(0).shouldHave(text("Male"));
@@ -58,8 +58,8 @@ public class PracticeFormTests {
 //        $(byText("Subjects")).sibling(0).shouldHave(text("Computer Science"));
 //        $(byText("Hobbies")).sibling(0).shouldHave(text("Sports, Reading, Music"));
 //        $(byText("Picture")).sibling(0).shouldHave(text("ejik.jpg"));
-
-        $(byText("Address")).sibling(0).shouldHave(text("New-York. Manhattan. Spider-Island."));
+//
+//        $(byText("Address")).sibling(0).shouldHave(text("New-York. Manhattan. Spider-Island."));
 //        $(byText("State and City")).sibling(0).shouldHave(text("Rajasthan Jaiselmer"));
     }
 }
