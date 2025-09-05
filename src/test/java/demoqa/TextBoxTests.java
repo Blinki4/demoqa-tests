@@ -9,6 +9,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class TextBoxTests {
+    String firstName = "Дмитрий",
+            email = "dima@bla.bla",
+            address = "address";
 
     @BeforeAll
     static void configureBrowser() {
@@ -23,28 +26,28 @@ public class TextBoxTests {
     }
 
     @AfterEach
-    void closeBrowser () {
+    void closeBrowser() {
         closeWindow();
     }
 
     @Test
-    void successfulFormSubmitTest () {
-        $("#userName").setValue("Peter Parker");
-        $("#userEmail").setValue("FriendlyNeighbour@web.com");
-        $("#currentAddress").setValue("New-York. Manhattan. Spider-Island.");
+    void successfulFormSubmitTest() {
+        $("#userName").setValue(firstName);
+        $("#userEmail").setValue(email);
+        $("#currentAddress").setValue(address);
         $("#permanentAddress").setValue("-----<3-----");
         $("#submit").click();
 
-        $("#output").$("#name").shouldHave(text("Peter Parker"));
-        $("#output").$("#email").shouldHave(text("FriendlyNeighbour@web.com"));
+        $("#output").$("#name").shouldHave(text(firstName));
+        $("#output").$("#email").shouldHave(text(email));
         //Можно записать и так и так
-        $("#output #currentAddress").shouldHave(text("New-York. Manhattan. Spider-Island."));
+        $("#output #currentAddress").shouldHave(text(address));
         $("#output #permanentAddress").shouldHave(text("-----<3-----"));
     }
 
     @Test
-    void invalidEmail () {
-        $("#userEmail").setValue("FriendlyNeighbour");
+    void invalidEmail() {
+        $("#userEmail").setValue("F123");
         $("#submit").click();
         $("#userEmail").shouldHave(cssClass("field-error"));
     }
